@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<center>
+		<h:form>
+		<h:outputText value="#{dao.searchEmp(empId)}" />
+			<h2 style="text-align: center" class="col-sm-4">Update Employ
+				Details</h2>
+			<hr />
+		
+          #{dao.loadEmployeData()}
+          Employ Id :
+            <h:inputText id="empId" value="#{dao.employeData.empId}" required="true" requiredMessage="Employ Id Required" />
+			<h:message for="empId" style="color:red;" /><br />
+			<br></br>
+          
+First Name:
+			<h:inputText id="empFirstName" required="true"
+				requiredMessage="Employ EmpFirstName Required"
+				value="#{dao.employeData.empFirstName}" />
+			<h:message for="empFirstName" style="color:red;" />
+
+			<br />
+			<br></br>
+Last Name :
+                    <h:inputText id="empLastName" required="true"
+				requiredMessage="Employ EmpLastName Required"
+				value="#{dao.getEmployeData().empLastName}" />
+			<h:message for="empLastName" style="color:red;" />
+
+			<br />
+			<br></br>
+Mobile No :
+                    <h:inputText id="empPhoneNumber" required="true"
+				requiredMessage="Employ EmpPhoneNumber Required"
+				value="#{dao.getEmployeData().empPhoneNumber}" />
+			<h:message for="empPhoneNumber" style="color:red;" />
+
+			<br />
+			<br></br>
+
+
+
+			<h:commandButton value="Update" action="#{dao.updateEmploy()}"/>
+		</h:form>
+	</center>
+</h:body>
+
+</html>

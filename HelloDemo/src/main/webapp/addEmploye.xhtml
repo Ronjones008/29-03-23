@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<center>
+			Employ FirstName:
+			<h:inputText id="empFirstName" value="#{employeData.empFirstName}"
+				required="true" requiredMessage="Field is Required" />
+			<h:message for="empFirstName" style="color:red;" />
+
+			<br /> <br /> Employ LastName:
+			<h:inputText id="empLastName" value="#{employeData.empLastName}"
+				required="true" requiredMessage="Field is Required" />
+			<h:message for="empLastName" style="color:red;" />
+
+			<br /> <br /> Employ PhoneNumber:
+			<h:inputText id="empPhoneNumber"
+				value="#{employeData.empPhoneNumber}" required="true"
+				requiredMessage="Field is Required" />
+			<h:message for="empPhoneNumber" style="color:red;" />
+			<br /> <br />
+
+			<h:commandButton action="#{dao.addEmploye(employeData)}"
+				value="save" /><br /><br />
+			
+
+			<h:commandButton type="reset" value="Reset" />
+
+
+
+		</center>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Students</title>
+</head>
+<body>
+	<center>
+		<h:form>
+		Enter Employ Id:
+		<h:inputText id="empId" value="#{employeData.empId}" required="true"
+				requiredMessage="Id is required" />
+				
+			<br />
+			<h:message for="empId" style="color:red;" />
+			<br />
+			<h:commandButton
+				action="#{dao.searchEmploy(employeData.empId)}"
+				value="Search" render="empTable" />
+			<h:messages style="color:red;" />
+			<br />
+			<br />
+
+			<h:commandButton type="reset" value="Reset" />
+			<br /><br />
+		
+			
+
+
+		</h:form>
+
+	</center>
+	<center>
+		<h:dataTable value="#{dao.empList}" var="s" border="3"
+			rendered="#{not empty dao.empList}" id="empTable"
+			style="background-color: #dcdcdc; font-family: Arial, sans-serif;">
+
+			<h:column >
+				<f:facet name="header">Employ Id </f:facet>
+				         <span style="color: Black;">Employ Id</span>
+				
+				<h:outputText value="#{s.empId}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">First Name </f:facet>
+				<h:outputText value="#{s.empFirstName}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Last Name </f:facet>
+				<h:outputText value="#{s.empLastName}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Phone Number </f:facet>
+				<h:outputText value="#{s.empPhoneNumber}" />
+			</h:column>
+
+		</h:dataTable>
+	</center>
+</body>
+</html>
